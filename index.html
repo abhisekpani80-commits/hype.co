@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HYPE.CO — We Make Brands Explode Online</title>
+<meta name="description" content="India's most result-driven digital marketing agency. YouTube growth, fan page promotion, social media, content creation & influencer marketing."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080810;--bg2:#0D0D18;--bg3:#111120;
+  --surface:#161628;--surface2:#1C1C30;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+  --orange:#FF6B00;--orange2:#FF9500;--pink:#FF2D6B;
+  --cyan:#00E5FF;--green:#00FF88;--yellow:#FFD600;
+  --text:#F0F0FF;--text2:#8888AA;
+  --fd:'Syne',sans-serif;--fb:'Outfit',sans-serif;--fm:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);overflow-x:hidden;cursor:none}
+#cur{position:fixed;width:12px;height:12px;background:var(--orange);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:screen}
+#curR{position:fixed;width:36px;height:36px;border:1.5px solid rgba(255,107,0,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s}
+.page{display:none;min-height:100vh}
+.page.active{display:block}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(8,8,16,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:all .3s}
+nav.scrolled{background:rgba(8,8,16,.98)}
+.logo{font-family:var(--fd);font-size:1.45rem;font-weight:800;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;letter-spacing:-.02em;cursor:pointer;background:none;border:none}
+.logo-ic{width:30px;height:30px;background:linear-gradient(135deg,var(--orange),var(--pink));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links button{background:none;border:none;color:var(--text2);font-family:var(--fb);font-size:.875rem;font-weight:500;padding:8px 14px;border-radius:8px;cursor:pointer;transition:color .2s,background .2s}
+.nav-links button:hover,.nav-links button.act{color:var(--text);background:var(--surface)}
+.nav-links button.act{color:var(--orange)}
+.nav-cta{background:linear-gradient(135deg,var(--orange),var(--pink))!important;color:#fff!important;font-weight:700!important;padding:10px 20px!important;border-radius:100px!important}
+.nav-cta:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 6px 24px rgba(255,107,0,.35)!important}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.ham span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.mob{display:none;position:fixed;inset:0;z-index:490;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:28px;padding-top:66px}
+.mob.open{display:flex}
+.mob button{background:none;border:none;color:var(--text);font-family:var(--fd);font-size:2rem;font-weight:700;cursor:pointer;transition:color .2s}
+.mob button:hover{color:var(--orange)}
+body::before{content:'';position:fixed;inset:0;z-index:1000;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");background-size:200px;pointer-events:none;opacity:.35}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 5% 60px;text-align:center;position:relative;overflow:hidden}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,107,0,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,107,0,.04) 1px,transparent 1px);background-size:60px 60px;animation:gmove 20s linear infinite}
+@keyframes gmove{0%{transform:translateY(0)}100%{transform:translateY(60px)}}
+.orb{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;animation:ofl 10s ease-in-out infinite}
+.o1{width:600px;height:600px;background:rgba(255,107,0,.15);top:-200px;right:-100px;animation-delay:0s}
+.o2{width:500px;height:500px;background:rgba(255,45,107,.12);bottom:-150px;left:-100px;animation-delay:3s}
+.o3{width:300px;height:300px;background:rgba(0,229,255,.08);top:40%;left:10%;animation-delay:6s}
+@keyframes ofl{0%,100%{transform:scale(1) translate(0,0)}33%{transform:scale(1.1) translate(20px,-20px)}66%{transform:scale(.9) translate(-15px,15px)}}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border2);border-radius:100px;padding:8px 18px;font-family:var(--fm);font-size:.75rem;color:var(--text2);margin-bottom:32px;position:relative;z-index:2;animation:fup .8s ease both}
+.edot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+.hero h1{font-family:var(--fd);font-size:clamp(2.8rem,9vw,8rem);font-weight:800;line-height:.95;letter-spacing:-.03em;position:relative;z-index:2;animation:fup .8s ease .1s both;max-width:1000px}
+.hero h1 .g{display:block;background:linear-gradient(135deg,var(--orange) 0%,var(--pink) 60%,var(--cyan) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200%;animation:gs 4s ease infinite}
+@keyframes gs{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.hero p.sub{font-size:clamp(.95rem,1.8vw,1.15rem);color:var(--text2);max-width:560px;line-height:1.7;margin:24px auto 40px;position:relative;z-index:2;animation:fup .8s ease .2s both}
+.hbtns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;position:relative;z-index:2;animation:fup .8s ease .3s both;margin-bottom:60px}
+.btn-p{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff;font-family:var(--fd);font-size:.95rem;font-weight:700;padding:16px 32px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;transition:transform .25s,box-shadow .25s;letter-spacing:-.01em}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(255,107,0,.4)}
+.btn-s{display:inline-flex;align-items:center;gap:10px;background:var(--surface);color:var(--text);font-family:var(--fd);font-size:.95rem;font-weight:600;padding:16px 32px;border-radius:100px;text-decoration:none;border:1px solid var(--border2);cursor:pointer;transition:all .25s}
+.btn-s:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px)}
+.hstats{display:flex;flex-wrap:wrap;justify-content:center;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:4px;position:relative;z-index:2;animation:fup .8s ease .4s both;max-width:700px;width:100%}
+.hstat{flex:1;min-width:130px;padding:20px 16px;text-align:center;border-right:1px solid var(--border)}
+.hstat:last-child{border-right:none}
+.hstat .v{font-family:var(--fd);font-size:1.8rem;font-weight:800;letter-spacing:-.03em;background:linear-gradient(135deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+.hstat .l{font-size:.7rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text2);font-family:var(--fm);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;animation:fin 1.5s ease 1s both;z-index:2}
+.sline{width:1px;height:40px;background:linear-gradient(to bottom,var(--orange),transparent);animation:sp 1.8s ease-in-out infinite}
+@keyframes sp{0%,100%{opacity:.3}50%{opacity:1}}
+.mq{padding:18px 0;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
+.mqt{display:flex;gap:36px;align-items:center;animation:mq 30s linear infinite;white-space:nowrap}
+.mqt:hover{animation-play-state:paused}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.mqi{font-family:var(--fm);font-size:.78rem;color:var(--text2);padding:7px 18px;background:var(--bg3);border:1px solid var(--border);border-radius:100px;flex-shrink:0}
+.mqsep{color:var(--orange);flex-shrink:0}
+.sec{padding:96px 5%;position:relative}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:.7rem;color:var(--orange);text-transform:uppercase;letter-spacing:.2em;margin-bottom:14px}
+.tag::before{content:'';width:20px;height:1px;background:var(--orange)}
+.stitle{font-family:var(--fd);font-size:clamp(2rem,4vw,3.4rem);font-weight:800;line-height:1.05;letter-spacing:-.03em}
+.stitle span{color:var(--orange)}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.svc{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s;cursor:default}
+.svc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--ac,var(--orange)),transparent);opacity:0;transition:opacity .3s}
+.svc:hover{transform:translateY(-6px);border-color:var(--border2);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.svc:hover::before{opacity:1}
+.sico{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:18px}
+.svc h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;margin-bottom:9px;color:var(--text)}
+.svc p{font-size:.875rem;color:var(--text2);line-height:1.65;margin-bottom:18px}
+.sprice{font-family:var(--fm);font-size:.78rem;color:var(--orange);background:rgba(255,107,0,.1);border:1px solid rgba(255,107,0,.2);padding:5px 11px;border-radius:7px;display:inline-block}
+.gbadge{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;color:var(--green);background:rgba(0,255,136,.07);border:1px solid rgba(0,255,136,.2);border-radius:100px;padding:4px 9px;margin-top:7px;font-family:var(--fm)}
+.why-strip{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 5%}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden}
+.wi{background:var(--bg2);padding:34px 26px;transition:background .3s}
+.wi:hover{background:var(--surface)}
+.wnum{font-family:var(--fd);font-size:2.8rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:10px}
+.wi h3{font-family:var(--fd);font-size:.95rem;font-weight:700;margin-bottom:7px}
+.wi p{font-size:.84rem;color:var(--text2);line-height:1.6}
+/* SERVICES PAGE */
+.sp-hero{padding:80px 5% 60px;text-align:center;position:relative;overflow:hidden}
+.sp-hero h1{font-family:var(--fd);font-size:clamp(2.5rem,6vw,6rem);font-weight:800;letter-spacing:-.03em;line-height:1.0;margin-bottom:14px}
+.sp-hero p{font-size:1.05rem;color:var(--text2);max-width:500px;margin:0 auto}
+.sfc{background:var(--surface);border:1px solid var(--border);border-radius:24px;overflow:hidden;margin-bottom:20px;transition:border-color .3s}
+.sfc:hover{border-color:var(--border2)}
+.sfch{padding:34px 34px 26px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.sfcl{flex:1}
+.sfcb{font-family:var(--fm);font-size:.68rem;text-transform:uppercase;letter-spacing:.15em;padding:5px 11px;border-radius:100px;margin-bottom:11px;display:inline-block}
+.sfch h2{font-family:var(--fd);font-size:1.55rem;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.sfch p{font-size:.88rem;color:var(--text2);line-height:1.65;max-width:520px}
+.sfcp{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:18px 22px;text-align:center;flex-shrink:0;min-width:155px}
+.sfcp .price{font-family:var(--fd);font-size:1.75rem;font-weight:800;letter-spacing:-.03em;display:block;background:linear-gradient(135deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sfcp .period{font-size:.76rem;color:var(--text2);font-family:var(--fm)}
+.sfcbody{padding:26px 34px 34px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.inc h4{font-family:var(--fm);font-size:.68rem;text-transform:uppercase;letter-spacing:.15em;color:var(--text2);margin-bottom:12px}
+.incl{list-style:none;display:flex;flex-direction:column;gap:9px}
+.incl li{display:flex;align-items:flex-start;gap:9px;font-size:.86rem;color:var(--text2);line-height:1.5}
+.incl li::before{content:'→';color:var(--orange);font-weight:700;flex-shrink:0;font-family:var(--fm)}
+.gbox{background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.15);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:7px}
+.gtitle{font-family:var(--fd);font-size:.95rem;font-weight:700;color:var(--green);display:flex;align-items:center;gap:7px}
+.gbox p{font-size:.8rem;color:var(--text2);line-height:1.6}
+.sfcf{padding:0 34px 26px}
+.bbtn{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff;font-family:var(--fd);font-size:.88rem;font-weight:700;padding:12px 26px;border-radius:100px;border:none;cursor:pointer;text-decoration:none;transition:all .25s}
+.bbtn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,107,0,.35)}
+/* RESULTS PAGE */
+.nstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin:0 5% 70px}
+.ni{background:var(--surface);padding:34px 22px;text-align:center;transition:background .3s}
+.ni:hover{background:var(--surface2)}
+.ni .val{font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:800;letter-spacing:-.03em;background:linear-gradient(135deg,var(--orange),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:5px}
+.ni .lbl{font-size:.74rem;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;font-family:var(--fm)}
+.cgrid{padding:0 5% 70px;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.cc{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:26px;transition:all .3s;position:relative;overflow:hidden}
+.cc::after{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--orange),var(--pink));opacity:0;transition:opacity .3s}
+.cc:hover{transform:translateY(-4px);border-color:var(--border2)}
+.cc:hover::after{opacity:1}
+.ctag{font-family:var(--fm);font-size:.68rem;text-transform:uppercase;letter-spacing:.15em;color:var(--text2);margin-bottom:10px}
+.cc h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;margin-bottom:7px}
+.cres{font-family:var(--fd);font-size:1.9rem;font-weight:800;letter-spacing:-.03em;background:linear-gradient(135deg,var(--orange),var(--orange2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin:10px 0 5px}
+.cc p{font-size:.83rem;color:var(--text2);line-height:1.6}
+/* ABOUT PAGE */
+.ah{padding:80px 5% 60px}
+.ah h1{font-family:var(--fd);font-size:clamp(2.3rem,6vw,5.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.0;margin-bottom:18px}
+.ah h1 em{font-style:normal;color:var(--orange)}
+.ah .intro{font-size:1.05rem;color:var(--text2);max-width:600px;line-height:1.75;margin-bottom:36px}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:0 5% 70px}
+.acard{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:30px}
+.acard h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;margin-bottom:10px}
+.acard p{font-size:.875rem;color:var(--text2);line-height:1.7}
+.acard .aico{font-size:1.8rem;margin-bottom:14px}
+.tsec{padding:0 5% 70px}
+.ttitle{font-family:var(--fd);font-size:1.9rem;font-weight:800;letter-spacing:-.02em;margin-bottom:28px}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.tcard{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:26px;text-align:center;transition:all .3s}
+.tcard:hover{border-color:var(--orange);transform:translateY(-4px)}
+.tav{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--pink));display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 14px}
+.tcard h4{font-family:var(--fd);font-size:.95rem;font-weight:700;margin-bottom:3px}
+.tcard span{font-size:.78rem;color:var(--text2);font-family:var(--fm)}
+/* CONTACT PAGE */
+.cwrap{padding:80px 5%;display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:start}
+.cl h1{font-family:var(--fd);font-size:clamp(2rem,4vw,4rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-bottom:18px}
+.cl h1 span{color:var(--orange)}
+.cl p{font-size:.93rem;color:var(--text2);line-height:1.7;margin-bottom:32px}
+.cinfo{display:flex;flex-direction:column;gap:10px;margin-bottom:30px}
+.irow{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:13px 16px;transition:border-color .2s}
+.irow:hover{border-color:var(--border2)}
+.iico{width:34px;height:34px;border-radius:9px;background:rgba(255,107,0,.1);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.ilbl{font-size:.7rem;color:var(--text2);font-family:var(--fm);text-transform:uppercase;letter-spacing:.1em}
+.ival{font-size:.875rem;color:var(--text);font-weight:500;margin-top:2px}
+.wabtn{display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;font-family:var(--fd);font-size:.92rem;font-weight:700;padding:13px 26px;border-radius:100px;border:none;cursor:pointer;text-decoration:none;transition:all .25s}
+.wabtn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,.35)}
+.cfc{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:34px}
+.cfc h2{font-family:var(--fd);font-size:1.35rem;font-weight:800;margin-bottom:5px}
+.cfc .fsub{font-size:.83rem;color:var(--text2);margin-bottom:26px}
+.fg{margin-bottom:14px}
+.fl{display:block;font-family:var(--fm);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--text2);margin-bottom:7px}
+.fi,.fsel,.fta{width:100%;background:var(--bg);border:1.5px solid var(--border);border-radius:11px;padding:12px 15px;color:var(--text);font-family:var(--fb);font-size:.88rem;outline:none;transition:border-color .2s,background .2s;-webkit-appearance:none}
+.fi:focus,.fsel:focus,.fta:focus{border-color:var(--orange);background:var(--surface2)}
+.fi::placeholder,.fta::placeholder{color:#44445A}
+.fsel option{background:var(--bg2)}
+.fta{resize:none;min-height:96px}
+.fr2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bsub{width:100%;padding:15px;background:linear-gradient(135deg,var(--orange),var(--pink));color:#fff;font-family:var(--fd);font-size:.98rem;font-weight:700;border:none;border-radius:13px;cursor:pointer;margin-top:7px;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:9px;letter-spacing:-.01em}
+.bsub:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(255,107,0,.4)}
+.bsub:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.fnote{text-align:center;font-size:.73rem;color:#44445A;margin-top:10px;font-family:var(--fm)}
+.abanner{display:none;background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.2);border-radius:14px;padding:18px;margin-bottom:18px;text-align:center}
+.abanner.show{display:block}
+.abanner p{font-size:.875rem;color:var(--green)}
+.fsuc{display:none;flex-direction:column;align-items:center;justify-content:center;padding:48px 20px;text-align:center}
+.fsuc.show{display:flex}
+.sico2{width:70px;height:70px;background:linear-gradient(135deg,var(--orange),var(--pink));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;margin-bottom:18px;animation:pin .5s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes pin{from{transform:scale(0)}to{transform:scale(1)}}
+.fsuc h3{font-family:var(--fd);font-size:1.45rem;font-weight:800;margin-bottom:7px}
+.fsuc p{font-size:.88rem;color:var(--text2);max-width:300px}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:44px 5% 28px}
+.ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
+.fbrand p{font-size:.875rem;color:var(--text2);line-height:1.7;margin-top:10px;max-width:270px}
+.fcol h5{font-family:var(--fm);font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--text2);margin-bottom:14px}
+.fcol a,.fcol button{display:block;background:none;border:none;font-family:var(--fb);font-size:.875rem;color:var(--text2);text-decoration:none;cursor:pointer;padding:3px 0;transition:color .2s;text-align:left}
+.fcol a:hover,.fcol button:hover{color:var(--orange)}
+.fbot{border-top:1px solid var(--border);padding-top:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fbot p{font-size:.76rem;color:#44445A;font-family:var(--fm)}
+.fbadge{font-family:var(--fm);font-size:.7rem;color:var(--orange);background:rgba(255,107,0,.08);border:1px solid rgba(255,107,0,.2);padding:5px 11px;border-radius:100px}
+/* badge colors */
+.bo{background:rgba(255,107,0,.12);color:var(--orange);border:1px solid rgba(255,107,0,.25)}
+.bp{background:rgba(255,45,107,.12);color:var(--pink);border:1px solid rgba(255,45,107,.25)}
+.bc{background:rgba(0,229,255,.12);color:var(--cyan);border:1px solid rgba(0,229,255,.25)}
+.bg{background:rgba(0,255,136,.12);color:var(--green);border:1px solid rgba(0,255,136,.25)}
+.by{background:rgba(255,214,0,.12);color:var(--yellow);border:1px solid rgba(255,214,0,.25)}
+/* icon bg */
+.io{background:rgba(255,107,0,.15)}.ip{background:rgba(255,45,107,.15)}.ic{background:rgba(0,229,255,.15)}.ig{background:rgba(0,255,136,.15)}
+/* accent */
+.ao{--ac:var(--orange)}.ap{--ac:var(--pink)}.acc{--ac:var(--cyan)}.ag{--ac:var(--green)}
+/* animations */
+@keyframes fup{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fin{from{opacity:0}to{opacity:1}}
+.rev{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.rev.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+/* RESPONSIVE */
+@media(max-width:900px){
+  .ftop{grid-template-columns:1fr 1fr}
+  .sfcbody{grid-template-columns:1fr}
+  .cwrap{grid-template-columns:1fr}
+  .agrid{grid-template-columns:1fr}
+  .nstrip{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .ham{display:flex}
+  .hero h1{font-size:2.7rem}
+  .hstat{min-width:100px}
+  .nstrip{grid-template-columns:1fr 1fr}
+  .sfch{flex-direction:column}
+  .fr2{grid-template-columns:1fr}
+  .ftop{grid-template-columns:1fr}
+  body{cursor:auto}
+  #cur,#curR{display:none}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<div id="curR"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <button class="logo" onclick="go('home')"><div class="logo-ic">⚡</div>HYPE.CO</button>
+  <div class="nav-links">
+    <button onclick="go('home')" class="act" id="nb-home">Home</button>
+    <button onclick="go('services')" id="nb-services">Services</button>
+    <button onclick="go('results')" id="nb-results">Results</button>
+    <button onclick="go('about')" id="nb-about">About</button>
+    <button onclick="go('contact')" id="nb-contact" class="nav-cta">Book a Call</button>
+  </div>
+  <button class="ham" onclick="togMob()" id="ham">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob" id="mob">
+  <button onclick="go('home');togMob()">Home</button>
+  <button onclick="go('services');togMob()">Services</button>
+  <button onclick="go('results');togMob()">Results</button>
+  <button onclick="go('about');togMob()">About</button>
+  <button onclick="go('contact');togMob()" style="color:var(--orange)">Book a Call →</button>
+</div>
+
+<!-- ══ HOME ══ -->
+<div class="page active" id="page-home">
+<section class="hero">
+  <div class="hgrid"></div>
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="eyebrow"><span class="edot"></span>Accepting new clients — limited slots open</div>
+  <h1>We Don't Just Market.<span class="g">We Make You Trend.</span></h1>
+  <p class="sub">India's most result-obsessed digital agency. YouTube growth, viral content, fan page promotion — with money-back guarantees that actually mean something.</p>
+  <div class="hbtns">
+    <button class="btn-p" onclick="go('contact')">Book Free Strategy Call →</button>
+    <button class="btn-s" onclick="go('services')">View Services & Pricing</button>
+  </div>
+  <div class="hstats">
+    <div class="hstat"><span class="v">80+</span><span class="l">Brands Scaled</span></div>
+    <div class="hstat"><span class="v">₹12Cr+</span><span class="l">Revenue Generated</span></div>
+    <div class="hstat"><span class="v">4.9★</span><span class="l">Client Rating</span></div>
+    <div class="hstat"><span class="v">100%</span><span class="l">Money Back Guarantee</span></div>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="sline"></div></div>
+</section>
+
+<div class="mq">
+  <div class="mqt">
+    <span class="mqi">YouTube Growth</span><span class="mqsep">✦</span>
+    <span class="mqi">Fan Page Promotion</span><span class="mqsep">✦</span>
+    <span class="mqi">Social Media</span><span class="mqsep">✦</span>
+    <span class="mqi">Content Creation</span><span class="mqsep">✦</span>
+    <span class="mqi">Influencer Marketing</span><span class="mqsep">✦</span>
+    <span class="mqi">Video Editing</span><span class="mqsep">✦</span>
+    <span class="mqi">Performance Ads</span><span class="mqsep">✦</span>
+    <span class="mqi">Brand Strategy</span><span class="mqsep">✦</span>
+    <span class="mqi">YouTube Growth</span><span class="mqsep">✦</span>
+    <span class="mqi">Fan Page Promotion</span><span class="mqsep">✦</span>
+    <span class="mqi">Social Media</span><span class="mqsep">✦</span>
+    <span class="mqi">Content Creation</span><span class="mqsep">✦</span>
+    <span class="mqi">Influencer Marketing</span><span class="mqsep">✦</span>
+    <span class="mqi">Video Editing</span><span class="mqsep">✦</span>
+    <span class="mqi">Performance Ads</span><span class="mqsep">✦</span>
+    <span class="mqi">Brand Strategy</span><span class="mqsep">✦</span>
+  </div>
+</div>
+
+<section class="sec">
+  <div style="margin-bottom:52px" class="rev">
+    <div class="tag">Our Services</div>
+    <h2 class="stitle">Everything your brand needs.<br/><span>Under one roof.</span></h2>
+  </div>
+  <div class="sgrid">
+    <div class="svc ao rev d1"><div class="sico io">📺</div><h3>YouTube Growth Package</h3><p>From 0 to 100K subscribers organically. Full production, SEO, thumbnails — everything handled.</p><div class="sprice">₹2,50,000 one-time</div><div><span class="gbadge">✓ 100% Money Back Guarantee</span></div></div>
+    <div class="svc ap rev d2"><div class="sico ip">📣</div><h3>Fan Page Promotion</h3><p>40 reels across 30 niche channels every month. 10M+ organic views, guaranteed.</p><div class="sprice">₹40,000 / month</div><div><span class="gbadge">✓ 10M+ Views Guaranteed</span></div></div>
+    <div class="svc acc rev d3"><div class="sico ic">📱</div><h3>Social Media Management</h3><p>Full-service management across Instagram, LinkedIn, X. Strategy, content, posting, community.</p><div class="sprice">₹15,000 / month</div></div>
+    <div class="svc ag rev d4"><div class="sico ig">🎬</div><h3>Content Creation</h3><p>Reels, carousels, short-form videos. Trend-first creative that stops the scroll every time.</p><div class="sprice">₹12,000 / month</div></div>
+  </div>
+  <div style="text-align:center;margin-top:34px" class="rev"><button class="btn-s" onclick="go('services')">View All Services & Full Pricing →</button></div>
+</section>
+
+<section class="why-strip">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="margin-bottom:38px" class="rev">
+      <div class="tag">Why HYPE.CO</div>
+      <h2 class="stitle">We're different.<br/><span>Here's proof.</span></h2>
+    </div>
+    <div class="wgrid rev">
+      <div class="wi"><div class="wnum" style="color:var(--orange)">01</div><h3>Guarantees That Are Real</h3><p>100K subs or full refund. 10M views or we work for free. Written into every contract.</p></div>
+      <div class="wi"><div class="wnum" style="color:var(--pink)">02</div><h3>No Fluff Reports</h3><p>Real numbers, plain language. You'll always know exactly what's happening and why.</p></div>
+      <div class="wi"><div class="wnum" style="color:var(--cyan)">03</div><h3>Affordable For Startups</h3><p>Enterprise-level results at startup-friendly prices. Built to be accessible, not exploitative.</p></div>
+      <div class="wi"><div class="wnum" style="color:var(--green)">04</div><h3>Direct Access, Always</h3><p>WhatsApp us directly. No account managers. You work with the people doing the actual work.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="text-align:center;background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="rev">
+    <div class="tag" style="justify-content:center;margin-bottom:18px">Let's Talk</div>
+    <h2 class="stitle" style="margin-bottom:14px">Ready to blow up<br/><span>your brand?</span></h2>
+    <p style="color:var(--text2);max-width:420px;margin:0 auto 32px;font-size:1rem;line-height:1.7">Book a free 30-min call. No commitment. We'll map out exactly how to grow your brand.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-p" onclick="go('contact')">Book Free Strategy Call →</button>
+      <a href="https://wa.me/919556436685?text=Hi!%20I%20found%20HYPE.CO%20and%20want%20to%20grow%20my%20brand." target="_blank" class="wabtn">💬 WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ftop">
+    <div class="fbrand"><div class="logo" style="font-size:1.3rem">⚡ HYPE.CO</div><p>India's most result-driven digital marketing agency. We make brands trend — with guarantees.</p></div>
+    <div class="fcol"><h5>Pages</h5><button onclick="go('home')">Home</button><button onclick="go('services')">Services</button><button onclick="go('results')">Results</button><button onclick="go('about')">About</button></div>
+    <div class="fcol"><h5>Services</h5><a href="#">YouTube Growth</a><a href="#">Fan Page Promo</a><a href="#">Social Media</a><a href="#">Content Creation</a><a href="#">Influencer Mktg</a></div>
+    <div class="fcol"><h5>Contact</h5><a href="mailto:biz.abhisek@gmail.com">biz.abhisek@gmail.com</a><a href="https://wa.me/919556436685" target="_blank">+91 95564 36685</a><button onclick="go('contact')">Book a Call →</button></div>
+  </div>
+  <div class="fbot"><p>© 2025 HYPE.CO — All rights reserved.</p><span class="fbadge">⚡ Results or Refund</span></div>
+</footer>
+</div>
+
+<!-- ══ SERVICES ══ -->
+<div class="page" id="page-services">
+<div style="padding-top:66px">
+<div class="sp-hero">
+  <div class="tag" style="justify-content:center;margin-bottom:14px">Pricing & Services</div>
+  <h1>Transparent pricing.<br/><span style="color:var(--orange)">Guaranteed results.</span></h1>
+  <p>No hidden costs. No vague promises. Here's exactly what you get and what it costs.</p>
+</div>
+
+<div style="padding:0 5% 80px">
+
+<div class="sfc rev">
+  <div class="sfch"><div class="sfcl"><div class="sfcb bo">🏆 Most Popular</div><h2>YouTube Growth Package</h2><p>We take your channel from zero to 100,000 real subscribers — organically. Full production, SEO, thumbnails included. If we don't hit 100K, you get every rupee back.</p></div>
+  <div class="sfcp"><span class="price">₹2.5L</span><span class="period">one-time package</span></div></div>
+  <div class="sfcbody">
+    <div class="inc"><h4>What's Included</h4><ul class="incl"><li>Full channel audit & niche strategy</li><li>8–12 videos produced per month</li><li>Professional editing & color grade</li><li>Custom A/B tested thumbnails</li><li>SEO-optimized titles, tags & descriptions</li><li>Shorts strategy for algorithm growth</li><li>Monthly performance reports</li><li>Direct WhatsApp support</li></ul></div>
+    <div class="gbox"><div class="gtitle">✓ 100% Money Back Guarantee</div><p>If we don't reach 100,000 organic subscribers within the agreed timeline, we refund 100% of your payment. No questions asked. T&C apply — channel must follow our content strategy throughout.</p></div>
+  </div>
+  <div class="sfcf"><button class="bbtn" onclick="go('contact')">Get Started → Book a Call</button></div>
+</div>
+
+<div class="sfc rev">
+  <div class="sfch"><div class="sfcl"><div class="sfcb bp">🔥 High Reach</div><h2>Fan Page Promotion</h2><p>Promote your brand across our network of 30 niche fan pages. 40 custom reels published every month. Guaranteed 10 million+ organic views with real audience engagement.</p></div>
+  <div class="sfcp"><span class="price">₹40K</span><span class="period">per month</span></div></div>
+  <div class="sfcbody">
+    <div class="inc"><h4>What's Included</h4><ul class="incl"><li>40 custom reels created for your brand</li><li>Published across 30 niche channels</li><li>Combined network reach: 5M+ followers</li><li>Niche targeting (food, fashion, tech, etc.)</li><li>Custom captions & hashtag strategy</li><li>Monthly view & reach report</li><li>Story mentions on select pages</li></ul></div>
+    <div class="gbox"><div class="gtitle">✓ 10M+ Views Guaranteed</div><p>We guarantee a minimum of 10 million organic views across all channels every month. If we fall short, we carry over the deficit to next month at no extra cost. Zero bots, zero paid traffic.</p></div>
+  </div>
+  <div class="sfcf"><button class="bbtn" onclick="go('contact')">Get Started → Book a Call</button></div>
+</div>
+
+<div class="sfc rev">
+  <div class="sfch"><div class="sfcl"><div class="sfcb bc">📱 Ongoing</div><h2>Social Media Management</h2><p>Full-service management across Instagram, LinkedIn, Twitter/X. Strategy, content, posting, community management — you focus on your business, we handle your presence.</p></div>
+  <div class="sfcp"><span class="price">₹15K</span><span class="period">per month</span></div></div>
+  <div class="sfcbody">
+    <div class="inc"><h4>What's Included</h4><ul class="incl"><li>20 posts/month across 2 platforms</li><li>Monthly content calendar</li><li>Story creation & posting</li><li>Community management & replies</li><li>Hashtag & growth strategy</li><li>Monthly analytics report</li></ul></div>
+    <div class="inc"><h4>Add-Ons Available</h4><ul class="incl"><li>+₹5K for each additional platform</li><li>+₹8K for paid ads management</li><li>+₹4K for 8 extra reels/month</li></ul></div>
+  </div>
+  <div class="sfcf"><button class="bbtn" onclick="go('contact')">Get Started → Book a Call</button></div>
+</div>
+
+<div class="sfc rev">
+  <div class="sfch"><div class="sfcl"><div class="sfcb bg">🎬 Ongoing</div><h2>Content Creation Package</h2><p>Scroll-stopping reels, carousels, and short-form videos. Trend-first, fast turnaround, designed to maximize reach and engagement for your brand.</p></div>
+  <div class="sfcp"><span class="price">₹12K</span><span class="period">per month</span></div></div>
+  <div class="sfcbody">
+    <div class="inc"><h4>What's Included</h4><ul class="incl"><li>12 reels / short-form videos per month</li><li>Professional editing, transitions & music</li><li>Custom captions & CTAs</li><li>8 static post designs</li><li>Brand-consistent visual style</li><li>2 revision rounds per piece</li></ul></div>
+    <div class="inc"><h4>Delivery</h4><ul class="incl"><li>Files via Google Drive</li><li>Turnaround: 3–5 business days per batch</li><li>Ready-to-post for all platforms</li></ul></div>
+  </div>
+  <div class="sfcf"><button class="bbtn" onclick="go('contact')">Get Started → Book a Call</button></div>
+</div>
+
+<div class="sfc rev">
+  <div class="sfch"><div class="sfcl"><div class="sfcb by">🤝 Campaign</div><h2>Influencer Marketing</h2><p>We connect your brand with the right creators and manage the entire campaign — from brief to performance reporting. Real partnerships, authentic content, measurable ROI.</p></div>
+  <div class="sfcp"><span class="price">₹18K</span><span class="period">per campaign</span></div></div>
+  <div class="sfcbody">
+    <div class="inc"><h4>What's Included</h4><ul class="incl"><li>Influencer research & vetting</li><li>Outreach & negotiation</li><li>Brief creation & content approval</li><li>Campaign management end-to-end</li><li>5–10 influencer collaborations</li><li>Post-campaign ROI report</li></ul></div>
+    <div class="inc"><h4>Tiers Available</h4><ul class="incl"><li>Nano (5K–50K) — highest engagement</li><li>Micro (50K–500K) — best value</li><li>Macro (500K+) — mass awareness</li></ul></div>
+  </div>
+  <div class="sfcf"><button class="bbtn" onclick="go('contact')">Get Started → Book a Call</button></div>
+</div>
+
+</div><!-- /padding -->
+
+<footer>
+  <div class="ftop">
+    <div class="fbrand"><div class="logo" style="font-size:1.3rem">⚡ HYPE.CO</div><p>India's most result-driven digital marketing agency.</p></div>
+    <div class="fcol"><h5>Pages</h5><button onclick="go('home')">Home</button><button onclick="go('results')">Results</button><button onclick="go('about')">About</button><button onclick="go('contact')">Contact</button></div>
+    <div class="fcol"><h5>Contact</h5><a href="mailto:biz.abhisek@gmail.com">biz.abhisek@gmail.com</a><a href="https://wa.me/919556436685" target="_blank">+91 95564 36685</a></div>
+    <div class="fcol"><h5>&nbsp;</h5><button onclick="go('contact')" style="color:var(--orange)">Book a Call →</button></div>
+  </div>
+  <div class="fbot"><p>© 2025 HYPE.CO — All rights reserved.</p><span class="fbadge">⚡ Results or Refund</span></div>
+</footer>
+</div>
+</div>
+
+<!-- ══ RESULTS ══ -->
+<div class="page" id="page-results">
+<div style="padding-top:66px">
+<div class="ah" style="padding-bottom:40px">
+  <div class="tag">Case Studies</div>
+  <h1 style="font-family:var(--fd);font-size:clamp(2.5rem,6vw,6rem);font-weight:800;letter-spacing:-.03em;line-height:1.0;margin-bottom:14px">Real brands.<br/><span style="color:var(--orange)">Real numbers.</span></h1>
+  <p style="font-size:1.05rem;color:var(--text2);max-width:500px">No vanity metrics. No cherry-picked screenshots. This is what we've actually delivered.</p>
+</div>
+
+<div class="nstrip rev">
+  <div class="ni"><span class="val">80+</span><span class="lbl">Brands Scaled</span></div>
+  <div class="ni"><span class="val">₹12Cr+</span><span class="lbl">Revenue Generated</span></div>
+  <div class="ni"><span class="val">500M+</span><span class="lbl">Total Views Delivered</span></div>
+  <div class="ni"><span class="val">4.9★</span><span class="lbl">Avg Client Rating</span></div>
+</div>
+
+<div class="cgrid">
+  <div class="cc rev"><div class="ctag">YouTube Growth</div><h3>Fashion Brand — Mumbai</h3><span class="cres">0 → 110K</span><p>Took a fashion brand's YouTube from zero to 110K subscribers in 8 months. Full production, SEO, Shorts strategy. Guarantee delivered in full.</p><div style="margin-top:12px"><span class="gbadge">✓ Guarantee Delivered</span></div></div>
+  <div class="cc rev d1"><div class="ctag">Fan Page Promotion</div><h3>D2C Food Brand — Delhi</h3><span class="cres">14.2M views</span><p>Month 1 of Fan Page campaign — 40 reels, 30 channels. 14.2M organic views, 4,200 new followers. Organic ROAS: 6.8x.</p><div style="margin-top:12px"><span class="gbadge">✓ 10M+ Guaranteed — Exceeded</span></div></div>
+  <div class="cc rev d2"><div class="ctag">Social Media</div><h3>EdTech Startup — Bangalore</h3><span class="cres">+340% followers</span><p>3 months of social media management. Instagram 2.4K → 10.5K. LinkedIn 800 → 4,200. Inbound leads up 280%.</p></div>
+  <div class="cc rev d3"><div class="ctag">Influencer Marketing</div><h3>Beauty Brand — Pune</h3><span class="cres">8.4x ROAS</span><p>12 micro-influencer collaborations. 2.1M combined reach. ₹18.4L in sales against ₹2.2L spend in 30 days.</p></div>
+  <div class="cc rev d1"><div class="ctag">Content Creation</div><h3>Fitness App — Hyderabad</h3><span class="cres">22 viral reels</span><p>12 reels/month for 4 months. 22 crossed 100K views organically. App downloads up 190% during campaign.</p></div>
+  <div class="cc rev d2"><div class="ctag">YouTube Growth</div><h3>Finance Creator — Chennai</h3><span class="cres">0 → 85K</span><p>Personal finance niche on YouTube. Hit 85K in 11 months with full production. On track for 100K guarantee.</p></div>
+</div>
+
+<section class="sec" style="text-align:center;background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="rev">
+    <h2 class="stitle" style="margin-bottom:14px">Your brand could be<br/><span>next on this page.</span></h2>
+    <p style="color:var(--text2);margin:0 auto 28px;max-width:420px;font-size:1rem;line-height:1.7">Book a free call — we'll tell you exactly what results are realistic for your brand.</p>
+    <button class="btn-p" onclick="go('contact')">Book Free Strategy Call →</button>
+  </div>
+</section>
+
+<footer>
+  <div class="ftop">
+    <div class="fbrand"><div class="logo" style="font-size:1.3rem">⚡ HYPE.CO</div><p>India's most result-driven digital marketing agency.</p></div>
+    <div class="fcol"><h5>Pages</h5><button onclick="go('home')">Home</button><button onclick="go('services')">Services</button><button onclick="go('about')">About</button><button onclick="go('contact')">Contact</button></div>
+    <div class="fcol"><h5>Contact</h5><a href="mailto:biz.abhisek@gmail.com">biz.abhisek@gmail.com</a><a href="https://wa.me/919556436685" target="_blank">+91 95564 36685</a></div>
+    <div class="fcol"><h5>&nbsp;</h5><button onclick="go('contact')" style="color:var(--orange)">Book a Call →</button></div>
+  </div>
+  <div class="fbot"><p>© 2025 HYPE.CO — All rights reserved.</p><span class="fbadge">⚡ Results or Refund</span></div>
+</footer>
+</div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<div class="page" id="page-about">
+<div style="padding-top:66px">
+<div class="ah">
+  <div class="tag">Our Story</div>
+  <h1>We built HYPE.CO because<br/><em>we were tired of bad agencies.</em></h1>
+  <p class="intro">Too many agencies charging big money, delivering fancy PDFs, and disappearing when results don't show up. We built HYPE.CO on one principle: if we don't deliver, you don't pay. Simple as that.</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <button class="btn-p" onclick="go('contact')">Work With Us →</button>
+    <button class="btn-s" onclick="go('services')">See Services</button>
+  </div>
+</div>
+
+<div class="agrid rev">
+  <div class="acard"><div class="aico">🎯</div><h3>Our Mission</h3><p>To make professional digital marketing accessible to every Indian brand — startup or established — with pricing that doesn't require a VC round and results that are actually guaranteed.</p></div>
+  <div class="acard"><div class="aico">⚡</div><h3>How We Work</h3><p>Book a call. We audit your digital presence, identify the biggest growth levers, and build a custom strategy. Then we execute fast — with weekly updates directly on WhatsApp.</p></div>
+  <div class="acard"><div class="aico">🛡️</div><h3>Our Guarantees</h3><p>Not marketing fluff — written into every contract. YouTube 100K guarantee and Fan Page view guarantee are legally backed. You get what we promise or your money back. Full stop.</p></div>
+  <div class="acard"><div class="aico">🌏</div><h3>Who We Work With</h3><p>D2C brands, creators, startups, small businesses, personal brands across India. If you want to grow online and you're serious about it, we want to work with you.</p></div>
+</div>
+
+<div class="tsec rev">
+  <h2 class="ttitle">The team behind HYPE.CO</h2>
+  <div class="tgrid">
+    <div class="tcard"><div class="tav">👨‍💻</div><h4>Abhisek</h4><span>Founder & Strategy</span></div>
+    <div class="tcard"><div class="tav">🎬</div><h4>Creative Lead</h4><span>Video & Content</span></div>
+    <div class="tcard"><div class="tav">📊</div><h4>Growth Lead</h4><span>Analytics & Ads</span></div>
+    <div class="tcard"><div class="tav">🤝</div><h4>Influencer Lead</h4><span>Partnerships</span></div>
+  </div>
+</div>
+
+<section class="sec" style="text-align:center;background:var(--bg2);border-top:1px solid var(--border)">
+  <div class="rev">
+    <h2 class="stitle" style="margin-bottom:14px">Let's build something<br/><span>worth talking about.</span></h2>
+    <button class="btn-p" onclick="go('contact')" style="margin-top:22px">Book a Free Call →</button>
+  </div>
+</section>
+
+<footer>
+  <div class="ftop">
+    <div class="fbrand"><div class="logo" style="font-size:1.3rem">⚡ HYPE.CO</div><p>India's most result-driven digital marketing agency.</p></div>
+    <div class="fcol"><h5>Pages</h5><button onclick="go('home')">Home</button><button onclick="go('services')">Services</button><button onclick="go('results')">Results</button><button onclick="go('contact')">Contact</button></div>
+    <div class="fcol"><h5>Contact</h5><a href="mailto:biz.abhisek@gmail.com">biz.abhisek@gmail.com</a><a href="https://wa.me/919556436685" target="_blank">+91 95564 36685</a></div>
+    <div class="fcol"><h5>&nbsp;</h5><button onclick="go('contact')" style="color:var(--orange)">Book a Call →</button></div>
+  </div>
+  <div class="fbot"><p>© 2025 HYPE.CO — All rights reserved.</p><span class="fbadge">⚡ Results or Refund</span></div>
+</footer>
+</div>
+</div>
+
+<!-- ══ CONTACT ══ -->
+<div class="page" id="page-contact">
+<div style="padding-top:66px">
+<div class="cwrap">
+  <div class="cl">
+    <div class="tag">Get In Touch</div>
+    <h1>Let's grow your <span>brand together.</span></h1>
+    <p>Book a free 30-minute strategy call. No pitch, no pressure — just a real conversation about where your brand is and where it can go.</p>
+    <div class="cinfo">
+      <div class="irow"><div class="iico">✉️</div><div><div class="ilbl">Email</div><div class="ival">biz.abhisek@gmail.com</div></div></div>
+      <div class="irow"><div class="iico">💬</div><div><div class="ilbl">WhatsApp</div><div class="ival">+91 95564 36685</div></div></div>
+      <div class="irow"><div class="iico">⚡</div><div><div class="ilbl">Response Time</div><div class="ival">Within 4 hours on weekdays</div></div></div>
+    </div>
+    <a href="https://wa.me/919556436685?text=Hi!%20I%20want%20to%20book%20a%20free%20strategy%20call%20with%20HYPE.CO" target="_blank" class="wabtn">💬 Message on WhatsApp</a>
+  </div>
+
+  <div class="cfc">
+    <div class="abanner" id="ab"><div style="font-size:1.8rem;margin-bottom:8px">✅</div><p><strong style="color:#fff">You've already submitted!</strong><br/>We received your request and will reach out on WhatsApp within 4 hours.</p></div>
+    <div id="fc">
+      <h2>Book a Free Strategy Call ☕</h2>
+      <p class="fsub">Fill this in — we'll reach out on WhatsApp within 4 hours.</p>
+      <div class="fr2">
+        <div class="fg"><label class="fl">Your Name *</label><input type="text" id="fn" class="fi" placeholder="Rahul Sharma"/></div>
+        <div class="fg"><label class="fl">WhatsApp Number *</label><input type="tel" id="fp" class="fi" placeholder="+91 98765 43210"/></div>
+      </div>
+      <div class="fg"><label class="fl">Brand / Company *</label><input type="text" id="fb" class="fi" placeholder="Your brand name"/></div>
+      <div class="fg"><label class="fl">Email Address *</label><input type="email" id="fe" class="fi" placeholder="you@brand.com"/></div>
+      <div class="fg"><label class="fl">Service You're Interested In</label>
+        <select id="fs" class="fsel">
+          <option value="" disabled selected>Select a service</option>
+          <option>YouTube Growth Package — ₹2,50,000</option>
+          <option>Fan Page Promotion — ₹40,000/month</option>
+          <option>Social Media Management — ₹15,000/month</option>
+          <option>Content Creation — ₹12,000/month</option>
+          <option>Influencer Marketing — ₹18,000/campaign</option>
+          <option>Multiple / Not Sure Yet</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">Monthly Marketing Budget</label>
+        <select id="fbu" class="fsel">
+          <option value="" disabled selected>Select your budget</option>
+          <option>Below ₹15,000/month</option>
+          <option>₹15,000 – ₹50,000/month</option>
+          <option>₹50,000 – ₹2,00,000/month</option>
+          <option>₹2,00,000+/month</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">Your Goal (optional)</label><textarea id="fm" class="fta" placeholder="We want to grow our YouTube to 100K, launch a product, get 10M views..."></textarea></div>
+      <button class="bsub" id="sb" onclick="subForm()"><span id="sbt">Send & Book My Call →</span></button>
+      <p class="fnote">🔒 We never share your info. Response within 4 hours.</p>
+    </div>
+    <div class="fsuc" id="fs2">
+      <div class="sico2">✓</div>
+      <h3>You're all set!</h3>
+      <p>We've received your request and will WhatsApp you within 4 hours to confirm your slot. Talk soon! 🚀</p>
+      <button onclick="go('home')" class="btn-s" style="margin-top:22px">Back to Home</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="ftop">
+    <div class="fbrand"><div class="logo" style="font-size:1.3rem">⚡ HYPE.CO</div><p>India's most result-driven digital marketing agency.</p></div>
+    <div class="fcol"><h5>Pages</h5><button onclick="go('home')">Home</button><button onclick="go('services')">Services</button><button onclick="go('results')">Results</button><button onclick="go('about')">About</button></div>
+    <div class="fcol"><h5>Contact</h5><a href="mailto:biz.abhisek@gmail.com">biz.abhisek@gmail.com</a><a href="https://wa.me/919556436685" target="_blank">+91 95564 36685</a></div>
+    <div class="fcol"><h5>&nbsp;</h5></div>
+  </div>
+  <div class="fbot"><p>© 2025 HYPE.CO — All rights reserved.</p><span class="fbadge">⚡ Results or Refund</span></div>
+</footer>
+</div>
+</div>
+
+<script>
+// CURSOR
+const c=document.getElementById('cur'),r=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';});
+setInterval(()=>{rx+=(mx-rx)*.12;ry+=(my-ry)*.12;r.style.left=rx+'px';r.style.top=ry+'px';},16);
+document.querySelectorAll('a,button,[onclick]').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{c.style.width='20px';c.style.height='20px';r.style.width='52px';r.style.height='52px';});
+  el.addEventListener('mouseleave',()=>{c.style.width='12px';c.style.height='12px';r.style.width='36px';r.style.height='36px';});
+});
+
+// NAV SCROLL
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40));
+
+// MOBILE
+function togMob(){document.getElementById('mob').classList.toggle('open');}
+
+// PAGE NAV
+function go(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('.nav-links button').forEach(b=>b.classList.remove('act'));
+  const nb=document.getElementById('nb-'+name);
+  if(nb)nb.classList.add('act');
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(reveals,100);
+  if(name==='contact')chkSub();
+}
+
+// REVEALS
+function reveals(){
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*80);obs.unobserve(e.target);}});
+  },{threshold:.08});
+  document.querySelectorAll('.page.active .rev').forEach(el=>{el.classList.remove('in');obs.observe(el);});
+}
+reveals();
+
+// CHECK ALREADY SUBMITTED
+function chkSub(){
+  const done=localStorage.getItem('hypeco_done');
+  if(done){
+    document.getElementById('ab').classList.add('show');
+    const fc=document.getElementById('fc');
+    if(fc)fc.style.display='none';
+  }
+}
+chkSub();
+
+// FORM SUBMIT
+async function subForm(){
+  const n=document.getElementById('fn').value.trim();
+  const p=document.getElementById('fp').value.trim();
+  const b=document.getElementById('fb').value.trim();
+  const e=document.getElementById('fe').value.trim();
+  const s=document.getElementById('fs').value;
+  const bu=document.getElementById('fbu').value;
+  const m=document.getElementById('fm').value.trim();
+  if(!n||!p||!b||!e){alert('Please fill in your name, WhatsApp number, brand and email.');return;}
+  const btn=document.getElementById('sb');
+  document.getElementById('sbt').textContent='Sending...';
+  btn.disabled=true;
+  await new Promise(r=>setTimeout(r,1200));
+  const data={name:n,phone:p,brand:b,email:e,service:s,budget:bu,message:m,time:new Date().toISOString()};
+  localStorage.setItem('hypeco_done','true');
+  localStorage.setItem('hypeco_data',JSON.stringify(data));
+  console.log('📬 HYPE.CO Booking:',data);
+  // Uncomment below and add your Formspree ID to receive email notifications:
+  // fetch('https://formspree.io/f/YOUR_ID',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+  const wa=encodeURIComponent(`Hi HYPE.CO! 👋\n\nI just submitted a booking.\n\nName: ${n}\nBrand: ${b}\nService: ${s||'Not selected'}\nBudget: ${bu||'Not selected'}\n\nLooking forward to the call!`);
+  setTimeout(()=>window.open(`https://wa.me/919556436685?text=${wa}`,'_blank'),800);
+  document.getElementById('fc').style.display='none';
+  document.getElementById('fs2').classList.add('show');
+  document.getElementById('ab').classList.add('show');
+}
+
+// COUNTER ANIMATION
+function animCtrs(){
+  document.querySelectorAll('.page.active .v,.page.active .val').forEach(el=>{
+    if(el.dataset.done)return;
+    el.dataset.done='1';
+    const orig=el.textContent;
+    const num=parseFloat(orig.replace(/[^0-9.]/g,''));
+    if(!num)return;
+    const pre=orig.match(/^[^\d]*/)?.[0]||'';
+    const suf=orig.match(/[\D]+$/)?.[0]||'';
+    const start=performance.now();
+    const dur=1800;
+    (function step(now){
+      const p=Math.min((now-start)/dur,1);
+      const ease=1-Math.pow(1-p,3);
+      const v=num*ease;
+      el.textContent=pre+(Number.isInteger(num)?Math.floor(v):v.toFixed(1))+suf;
+      if(p<1)requestAnimationFrame(step);else el.textContent=orig;
+    })(start);
+  });
+}
+const cO=new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting)animCtrs();}),{threshold:.3});
+document.querySelectorAll('.hstats,.nstrip').forEach(el=>cO.observe(el));
+</script>
+</body>
+</html>
